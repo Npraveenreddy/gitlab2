@@ -1,0 +1,10 @@
+stages:
+  - deploy
+deploy_QA:
+  stage: deploy
+  environment: 
+    name: Staging
+  script:
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - ssh -o StrictHostKeyChecking=no ubuntu@54.163.181.117
+    - mkdir -p /home/ubuntu/praveen
